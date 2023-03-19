@@ -6,6 +6,8 @@ function myFunction() {
 document.getElementById("demo").innerHTML = x;
 }
 
+
+// remember me chexkbox
 const rmCheck = document.getElementById("customCheck1"),
     emailInput = document.getElementById("email");
 
