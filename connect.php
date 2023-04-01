@@ -23,7 +23,7 @@
         {
             	echo "email already exists";
         }
-		
+			
 		}
 else{
 	

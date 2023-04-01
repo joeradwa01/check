@@ -5010,27 +5010,161 @@ $(function() {
 });
 
 // quill
-if (jQuery("#editor").length) {
-  var quill = new Quill('#editor', {
-  theme: 'snow'
+ 
+
+
+
+   document.addEventListener('click', function(event) {
+    if (event.target.closest('.bg-primary1')) {
+      // Get the note element that was clicked
+      let noteElem = event.target.closest('.note');
+      // Change the color of the note
+      change(noteElem);
+    }
   });
+
+function change(noteElem) {
+  let noteDetailElem = noteElem.querySelector('.note-detail');
+  noteDetailElem.classList.remove('card-bottom-border-primary');
+  noteDetailElem.classList.add('card-bottom-border-info');
 }
-  // With Tooltip
-  if (jQuery("#quill-toolbar").length) {
-    var toolbarOptions = [
-      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-      ['bold', 'italic', 'underline', 'strike'],
-      ['blockquote', 'code-block'],
-      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-      [{ 'indent': '-1'}, { 'indent': '+1' }],
-      [{ 'direction': 'rtl' }]
-    ];
+
+function createNote() {
+    var content = quill.root.innerHTML;
+    const timestamp = Date.now();
+    const noteId = `note-${timestamp}`;
+    var note = document.createElement('div');
+    note.classList.add('note');
+    note.id = noteId;
+
+    note.innerHTML += '<div class="row" > <div class="col-lg-4 col-md-6"> <div   id="noteid"  class="classchange card card-block card-stretch card-height card-bottom-border-primary note-detail"> <div class="card-header d-flex justify-content-between pb-1"> <div class="icon iq-icon-box-2 icon-border-info rounded"> <svg width="23" height="23" class="svg-icon" id="iq-main-01" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /> </svg> </div> <div class="card-header-toolbar d-flex align-items-center"> <div class="dropdown"> <span class="dropdown-toggle dropdown-bg" id="note-dropdownMenuButton4" data-toggle="dropdown" aria-expanded="false" role="button"> <i class="ri-more-fill"></i> </span> <div class="dropdown-menu dropdown-menu-right" aria-labelledby="note-dropdownMenuButton4"> <a href="#" class="dropdown-item new-note1" data-toggle="modal" data-target="#new-note1"><i class="las la-eye mr-3"></i>View</a> <a href="#" class="dropdown-item edit-note1" data-toggle="modal" data-target="#edit-note1"><i class="las la-pen mr-3"></i>Edit</a> <a class="dropdown-item note-close" data-extra-toggle="delete" data-closest-elem=".card" href="#"><i class="las la-trash-alt mr-3"></i>Delete</a> </div> </div> </div> </div> <div class="card-body rounded"> <h4 class="card-title"></h4> <p id="note1-description" > '+ content+' </p> </div> <div class="card-footer"> <div class="d-flex align-items-center justify-content-between note-text note-text-info"> <a href="#" class=""><i class="las la-calendar mr-2 font-size-20"></i>12 Jan 2021</a> </div> </div> </div> </div> </div>   ';
+ 
+                                                                        
+    let adsa=document.getElementById('color-primary');
+    adsa.addEventListener('click', function(event) {
+
+    let noteDetailElem = note.querySelector('.classchange');
+    noteDetailElem.classList.add('bg-primary1');
+    
+  });
+
+   
+  
+
+
+
+
+/*
+     
+    let bgsecondary = document.getElementById('bg-secondary');
+
+    bgsecondary.addEventListener('click' ,change2);
+    
+    
+    function change2(){
+
+      let classchange = document.getElementById('.classchange');
+
+
+      classchange.classList.remove('card-bottom-border-primary');
+      classchange.classList.add('card-bottom-border-secondary'); 
+ 
+    }
+
+*/
+
+
+
+
+
+
+    var closeButton = note.querySelector('.note-close');
+    closeButton.addEventListener('click', function() {
+ 
+      const closestElem = $(this).attr('data-closest-elem')
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+              confirmButton: 'btn btn-primary btn-primary-window',
+              cancelButton: 'btn btn-outline-primary ml-2'
+            },
+            buttonsStyling: false
+          })
+           
+          swalWithBootstrapButtons.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            showClass: {
+                popup: 'animate__animated animate__zoomIn'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__zoomOut'
+            }
+        })
+        .then((willDelete) => {
+            if (willDelete.isConfirmed) {
+                swalWithBootstrapButtons.fire({
+                        title: 'Deleted!',
+                        text: "Your note has been deleted.",
+                        icon: 'success',
+                        showClass: {
+                            popup: 'animate__animated animate__zoomIn'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__zoomOut'
+                        }
+                    }
+                  ).then(() => {
+                      if (closestElem == '.card') {
+                        $(this).closest(closestElem).parent().remove()
+                      } else {
+                        $(this).closest(closestElem).remove()
+                      }
+                  })
+            } else {
+                swalWithBootstrapButtons.fire({
+                    title: "Your note is safe!",
+                    showClass: {
+                        popup: 'animate__animated animate__zoomIn'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__zoomOut'
+                    }
+                });
+            }
+        });  
+ 
+
+
+
+
+    });
+    document.querySelector('#savenote').appendChild(note);
+   
+}
+
+ 
+ 
+if (jQuery("#quill-toolbar").length) {
+  var toolbarOptions = [
+    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+    ['bold', 'italic', 'underline', 'strike'],
+    ['blockquote', 'code-block'],
+    ['link', 'image'],  
+    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+    [{ 'indent': '-1'}, { 'indent': '+1' }],
+    [{ 'color': [] },   { 'background': [] }], // new line to add a color picker
+
+    [{ 'direction': 'rtl' }]
+  ];
   var quill = new Quill('#quill-toolbar', {
-      modules: {
-        toolbar: toolbarOptions
-      },
-      placeholder: 'Compose an epic...',
-      theme: 'snow'
+    modules: {
+      toolbar: toolbarOptions
+    },
+    placeholder: 'Compose an epic...',
+    theme: 'snow'
   });
   // Enable all tooltips
   $('[data-toggle="tooltip"]').tooltip();
@@ -5038,36 +5172,61 @@ if (jQuery("#editor").length) {
   // Can control programmatically too
   $('.ql-italic').mouseover();
   setTimeout(function() {
-      $('.ql-italic').mouseout();
+    $('.ql-italic').mouseout();
   }, 2500);
+
+  // Add event listener to "Save" button
+  document.getElementById('save').addEventListener('click', function() {
+    createNote();
+  });
+  
 }
+
+ 
+
+
+   
  // With Tooltip
- if (jQuery("#quill-toolbar1").length) {
+if (jQuery("#quill-toolbar1").length) {
   var toolbarOptions = [
     [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-    ['bold', 'italic', 'underline'],
-    ['code-block'],
+    ['bold', 'italic', 'underline', 'strike'],
+    ['blockquote', 'code-block'],
     [{ 'list': 'ordered'}, { 'list': 'bullet' }],
     [{ 'indent': '-1'}, { 'indent': '+1' }],
-    [{ 'direction': 'rtl' }]
-  ];
-var quill = new Quill('#quill-toolbar1', {
+[{ 'direction': 'rtl' }] ];
+  var q = new Quill('#quill-toolbar1', {
     modules: {
       toolbar: toolbarOptions
     },
     placeholder: 'Compose an epic...',
     theme: 'snow'
-});
-// Enable all tooltips
-$('[data-toggle="tooltip"]').tooltip();
+  });
+  // Enable all tooltips
+  $('[data-toggle="tooltip"]').tooltip();
 
-// Can control programmatically too
-$('.ql-italic').mouseover();
-setTimeout(function() {
+  // Can control programmatically too
+  $('.ql-italic').mouseover();
+  setTimeout(function() {
     $('.ql-italic').mouseout();
-}, 2500);
+  }, 2500);
+
+    
+  document.getElementById('save-edit').addEventListener('click', function() {
+    editNote();
+  });
 }
-  // file upload
+
+
+function editNote(){
+
+    
+}
+ 
+
+ 
+
+// file upload
   $(".custom-file-input").on("change", function() {
     var fileName = $(this).val().split("\\").pop();
     $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
@@ -6296,4 +6455,76 @@ if (jQuery('#calendar1').length) {
   }
 })(jQuery);
 
+ 
 
+/*
+
+
+
+ // Add event listener to "Save" button
+ document.getElementById('save').addEventListener('click', function() {
+  var content = quill.root.innerHTML;
+  
+  // Create a new note element
+  var noteElement = document.createElement('div');
+  noteElement.classList.add('note-content', 'tab-content');
+  noteElement.innerHTML = `
+
+
+
+      <div class="tab-pane fade active show">
+          <div class="icon active animate__animated animate__fadeIn i-grid">
+              <div class="row">
+                  <div class="col-lg-4 col-md-6">
+                      <div class="card card-block card-stretch card-height card-bottom-border-info note-detail">
+                          <div class="card-header d-flex justify-content-between pb-1">
+                              <div class="icon iq-icon-box-2 icon-border-info rounded">
+                                  <svg width="23" height="23" class="svg-icon" id="iq-main-01" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                  </svg>
+                              </div>
+                              <div class="card-header-toolbar d-flex align-items-center">
+                                  <div class="dropdown">
+                                      <span class="dropdown-toggle dropdown-bg" id="note-dropdownMenuButton4"
+                                          data-toggle="dropdown" aria-expanded="false" role="button">
+                                          <i class="ri-more-fill"></i>
+                                      </span>
+                                      <div class="dropdown-menu dropdown-menu-right"
+                                          aria-labelledby="note-dropdownMenuButton4" style="">
+                                          <a href="#" class="dropdown-item new-note1" data-toggle="modal" data-target="#new-note1"><i class="las la-eye mr-3"></i>View</a>
+                                          <a href="#" class="dropdown-item edit-note1" data-toggle="modal" data-target="#edit-note1"><i class="las la-pen mr-3"></i>Edit</a>
+                                          <a class="dropdown-item" data-extra-toggle="delete" data-closest-elem=".card"href="#"><i class="las la-trash-alt mr-3"></i>Delete</a>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+  
+  
+                              
+  
+                              <div class="card-body rounded">
+                                  <h4 class="card-title">Weekly Planner</h4>
+                                  <p id="note1-description" class="mb-3 card-description short"></p>                                                            
+                              </div>
+                              <div class="card-footer">
+                                  <div class="d-flex align-items-center justify-content-between note-text note-text-info">
+  
+                                      <a href="#" class=""><i class="las la-calendar mr-2 font-size-20"></i>12 Jan 2021</a>
+                                  </div>
+                              </div>
+                          </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+  
+';    
+    */
+ 
+                          
+    
+    
+    
+    
+     

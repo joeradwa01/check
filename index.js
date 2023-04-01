@@ -1,4 +1,3 @@
-
 // agree on terms check box
 function myFunction() {
  
@@ -29,13 +28,15 @@ function lsRememberMe() {
   }
 }
 
+ 
+const express = require('express');
+const app = express();
 
+const multer  = require('multer')
+const upload = multer({ dest: 'uploads/' })
 
+app.post('/upload', upload.single('picture'), (req, res) => {
+  res.send('File uploaded!');
+});
 
-
-
-
-
-
-
-
+ 

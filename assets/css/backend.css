@@ -44766,3 +44766,44 @@ table.dataTable,table.dataTable th,table.dataTable td
 {
   margin-bottom: 5px;
 }
+
+
+
+
+
+
+.note {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.note-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.note-close {
+  font-size: 24px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.note-close:hover {
+  color: #666;
+}
+
+.note-body {
+  font-size: 16px;
+  line-height: 1.5;
+}
