@@ -22,6 +22,9 @@
       <link rel="stylesheet" href="../assets/vendor/mapbox/mapbox-gl.css">  </head>
   <body class="noteplus-layout  ">
     <!-- loader Start -->
+ 
+    <div class="page-content">
+
     <div id="loading">
           <div id="loading-center">
           </div>
@@ -601,7 +604,7 @@
                   <a href="#"  id="dropdownMenuButton01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-primary pr-5 position-relative iq-user-toggle d-flex align-items-center justify-content-between" style="height: 40px;"><span  class="btn-title btn-create"><i class="ri-add-line mr-3"></i>Create New</span><span class="note-add-btn" style="height: 40px;"><i class="las la-angle-down"></i></span></a>
                   <div class="dropdown-menu w-100 border-0 py-3" aria-labelledby="dropdownMenuButton01">
                       <a    class="dropdown-item mb-2" href="#">
-                          <span id="btn-new"><i  class="ri-sticky-note-line mr-3"></i>Blank Notes</span>
+                          <span id="myBtn"><i  class="ri-sticky-note-line mr-3"></i>Blank Notes</span>
                       </a>
                       <a class="dropdown-item mb-2" href="../backend/page-new-note.html?type=todo">
                           <span><i class="ri-todo-line mr-3"></i>To-do</span>
@@ -1078,7 +1081,7 @@
 </div>
 </div>
 
-
+<
 
 
     
@@ -1125,8 +1128,8 @@
                                          <p class="bg-warning pt-5 pb-5 text-center rounded"></p>
                                          <h6>Warning</h6>
                                       </div>
-                                      <div class="col-lg-2 col-md-6 text-center">
-                                        <a href="#"   > <p  id="color-primary"  class="bg-info pt-5 pb-5 text-center rounded"></p> </a>
+                                      <div  id="color-primary" class="col-lg-2 col-md-6 text-center">
+                                        <p   class="bg-info pt-5 pb-5 text-center rounded"></p> 
                                          <h6>Info</h6>
                                       </div>
                                       <div class="col-lg-2 col-md-6 text-center mt-4">
@@ -1147,70 +1150,20 @@
         </div>
     </div> 
     
-                   
+     
+ 
+<!-- The Modal -->
+<div id="myModal" class="modal-create ">
 
-    <div class="new-board" id="tag-rename" tabindex="-1" role="dialog" aria-hidden="true">
-        <div   id="new-note1" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="popup text-left">
-                            <div class="media align-items-top justify-content-between">                            
-                                 <div class="btn-cancel p-0" data-dismiss="modal"><i class="las la-times"></i></div>
-                            </div>
-                            <div class="content create-workform">
-                                <div class="card">
-                                    <div class="card-header d-flex justify-content-between">
-                                       <div class="header-title">
-                                          <h4 class="card-title">NotePlus Color</h4>
-                                       </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row mt-4">
-                                          <div class="col-lg-2 col-md-6 text-center">
-                        
-                                             <p class="bg-primary pt-5 pb-5 text-center rounded"></p> 
-    
-                                             <h6>Primary</h6>
-                                          </div>
-                                          <div class="col-lg-2 col-md-6 text-center">
-                                            <a href="#"   > <p  id="bg-secondary" class="bg-secondary pt-5 pb-5 text-center rounded"></p> </a>
-                                             <h6>Secondary</h6>
-                                          </div>
-                                          <div class="col-lg-2 col-md-6 text-center">
-                                             <p class="bg-success pt-5 pb-5 text-center rounded"></p>
-                                             <h6>Success</h6>
-                                          </div>
-                                          <div class="col-lg-2 col-md-6 text-center">
-                                             <p class="bg-danger pt-5 pb-5 text-center rounded"></p>
-                                             <h6>Danger</h6>
-                                          </div>
-                                          <div class="col-lg-2 col-md-6 text-center">
-                                             <p class="bg-warning pt-5 pb-5 text-center rounded"></p>
-                                             <h6>Warning</h6>
-                                          </div>
-                                          <div class="col-lg-2 col-md-6 text-center">
-                                            <a href="#"   > <p  id="color-primary"  class="bg-info pt-5 pb-5 text-center rounded"></p> </a>
-                                             <h6>Info</h6>
-                                          </div>
-                                          <div class="col-lg-2 col-md-6 text-center mt-4">
-                                             <p class="bg-light pt-5 pb-5 text-center rounded"></p>
-                                             <h6>Light</h6>
-                                          </div>
-                                          <div class="col-lg-2 col-md-6 text-center mt-4">
-                                             <p class="bg-dark pt-5 pb-5 text-center rounded"></p>
-                                             <h6>Dark</h6>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> 
-    </div>       
+    <!-- Modal content -->
+    <div class="modal-content1">
+      <span class="closemodal">&times;</span>
+      <p>Some text in the Modal..</p>
+      <p>Some text in the Modal..</p>
+      <p>Some text in the Modal..</p>
+    </div>
+  
+  </div>
 
 
 
@@ -1232,6 +1185,9 @@
         </div>
 
     </footer>
+
+</div>
+
     <!-- Backend Bundle JavaScript -->
 
  

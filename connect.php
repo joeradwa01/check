@@ -5,8 +5,11 @@
 	$password = $_POST['password'];
 	$confirm = $_POST['confirm'];
 
+	// Generate a random username
+	$username = '@' . substr(uniqid(), -6);
+
 	// Database connection
-	$conn = new mysqli('localhost','root','','sign');
+	$conn = new mysqli('localhost','root','','page');
 	if($conn->connect_error){
 		echo "$conn->connect_error";
 		die("Connection Failed : ". $conn->connect_error);
@@ -25,15 +28,15 @@
         }
 			
 		}
-else{
+else{ 
 	
 //do your insert code here or do something (run your code)
 
 
-		$stmt = $conn->prepare("insert into form(firstName, lastName, email, password) values(?, ?, ?,? )");
+		$stmt = $conn->prepare("insert into form(firstName, lastName, email, username, password) values(?, ?, ?, ?, ? )");
 		
 		
-		$stmt->bind_param("ssss", $firstName, $lastName, $email, $password);
+		$stmt->bind_param("sssss", $firstName, $lastName, $email, $username, $password);
 
 
 		$execval = $stmt->execute();
