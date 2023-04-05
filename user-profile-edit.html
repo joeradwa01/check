@@ -10,36 +10,136 @@
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="icons8-note-48.png" />
-
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://localhost:8080/web/css/style.css">
+    
 <link rel="stylesheet" href="css/style.css">     
-<link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
-<link rel="stylesheet" href="../assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
-<link rel="stylesheet" href="../assets/vendor/remixicon/fonts/remixicon.css">
+<link rel="stylesheet" href="css/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+
+<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
+
 <link rel="stylesheet" href="../assets/vendor/@icon/dripicons/dripicons.css">
 
-<link rel='stylesheet' href='../assets/vendor/fullcalendar/core/main.css' />
-<link rel='stylesheet' href='../assets/vendor/fullcalendar/daygrid/main.css' />
-<link rel='stylesheet' href='../assets/vendor/fullcalendar/timegrid/main.css' />
-<link rel='stylesheet' href='../assets/vendor/fullcalendar/list/main.css' />
+<link rel='stylesheet' href='core/main.css' />
+<link rel='stylesheet' href='daygrid/main.css' />
+<link rel='stylesheet' href='timegrid/main.css' />
+<link rel='stylesheet' href='list/main.css' />
 <link rel="stylesheet" href="../assets/vendor/mapbox/mapbox-gl.css"> 
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-$(function() {
-// Listen for changes to the file input field
-$('.file-upload').on('change', function(e) {
-// Get the selected file
-var file = e.target.files[0];
 
-// Create a URL for the selected file
-var url = URL.createObjectURL(file);
+<script>$(function() {
+    // Listen for changes to the file input field
+    $('.file-upload').on('change', function(e) {
+    // Get the selected file
+    var file = e.target.files[0];
+    
+    // Create a URL for the selected file
+    var url = URL.createObjectURL(file);
+    
+    // Update the profile picture with the selected file
+    $('.crm-profile-pic').attr('src', url);
+    });
+    });</script>
+    
+<script src="jquery-3.6.3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
-// Update the profile picture with the selected file
-$('.crm-profile-pic').attr('src', url);
-});
-});
-</script></head>
+<script src="index.js" ></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<script src="index1.js" ></script>
+<script src="js/backend-bundle.min.js"></script>
+
+<!-- Flextree Javascript-->
+<script src="js/flex-tree.min.js"></script>
+<script src="js/tree.js"></script>
+
+<!-- Table Treeview JavaScript -->
+<script src="js/table-treeview.js"></script>
+
+<!-- Masonary Gallery Javascript -->
+<script src="js/masonry.pkgd.min.js"></script>
+<script src="js/imagesloaded.pkgd.min.js"></script>
+
+<!-- Mapbox Javascript -->
+<script src="js/mapbox-gl.js"></script>
+<script src="js/mapbox.js"></script>
+
+<!-- Fullcalender Javascript -->
+<script src='core/main.js'></script>
+<script src='daygrid/main.js'></script>
+<script src='timegrid/main.js'></script>
+<script src='list/main.js'></script>
+
+<!-- SweetAlert JavaScript -->
+<script src="js/sweetalert.js"></script>
+
+<!-- Vectoe Map JavaScript -->
+<script src="js/vector-map-custom.js"></script>
+
+<!-- Chart Custom JavaScript -->
+<script src="js/customizer.js"></script>
+
+<!-- Chart Custom JavaScript -->
+<script src="js/chart-custom.js"></script>
+
+<!-- slider JavaScript -->
+<script src="js/slider.js"></script>
+
+<!-- app JavaScript -->
+<script src="js/app.js"></script>
+<script src="jquery.toolbar.js"></script>
+
+<script src="{{asset('/js/backend-bundle.min.js')}}"></script>
+
+<!-- Flextree Javascript-->
+<script src="{{asset('/js/flex-tree.min.js')}}"></script>
+<script src="{{asset('/js/tree.js')}}"></script>
+ 
+<!-- Table Treeview JavaScript -->
+<script src="{{asset('/js/table-treeview.js')}}"></script>
+ 
+<!-- Masonary Gallery Javascript -->
+<script src="{{asset('/js/masonry.pkgd.min.js')}}"></script>
+<script src="{{asset('/js/imagesloaded.pkgd.min.js')}}"></script>
+ 
+<!-- SweetAlert JavaScript -->
+<script src="{{asset('/js/sweetalert.js')}}"></script>
+ 
+<!-- Vectoe Map JavaScript -->
+<script src="{{asset('/js/vector-map-custom.js')}}"></script>
+ 
+<!-- Chart Custom JavaScript -->
+<script src="{{asset('/js/customizer.js')}}"></script>
+ 
+<!-- Chart Custom JavaScript -->
+<script src="{{asset('/js/chart-custom.js')}}"></script>
+ 
+<!-- slider JavaScript -->
+<script src="{{asset('/js/slider.js')}}"></script>
+ 
+<!-- quill Javascript -->
+<script src="{{asset('/js/quill.js')}}"></script>
+ 
+<!-- app JavaScript -->
+<script src="{{asset('/js/app.js')}}"></script>
+
+<!-- app JavaScript -->
+<script src="js/app.js"></script>
+  
+</head>
+
+
+
 <body class=" ">
 <!-- loader Start -->
  
@@ -580,7 +680,7 @@ $('.crm-profile-pic').attr('src', url);
 <a href="#" class="iq-user-toggle d-flex align-items-center justify-content-between" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 <img src="1.jpg" class="img-fluid rounded avatar-50 mr-3" alt="user">
 <div class="caption">
-    <h6 class="mb-0 line-height">Bud Wiser</h6>
+    <h6 class="mb-0 line-height"><?php echo $row['firstName']; ?> <?php echo $row['lastName']; ?> </h6>
 </div>
 <i class="las la-angle-down"></i>
 </a>
@@ -636,7 +736,7 @@ $('.crm-profile-pic').attr('src', url);
 <nav class="iq-sidebar-menu">
 <ul id="iq-sidebar-toggle" class="iq-menu">
     <li class="active">
-            <a href="../index.html" class="svg-icon">
+            <a href="index.html" class="svg-icon">
                 <i>
                     <svg class="svg-icon" id="iq-main-1" width="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
@@ -916,19 +1016,18 @@ $('.crm-profile-pic').attr('src', url);
             <div class="card-body">
 
 
-                <form id="myForm">
+                <form id="myForm" enctype="multipart/form-data">
 
-    
+                    
                     <div class="form-group row align-items-center">
                     <div class="col-md-12">
                         <div class="profile-img-edit">
                             <div class="crm-profile-img-edit">
-                                <img class="crm-profile-pic avatar-100" src="../assets/images/user/1.jpg" alt="profile-pic">
+                                <img class="crm-profile-pic avatar-100" src="<?php echo $row['profile_pic'];?>" alt="profile-pic">
                                 <div class="crm-p-image bg-primary">
                                 <i class="las la-pen upload-button"></i>
-                                <input class="file-upload" type="file" accept="image/*">
                                 
-                            
+                                <input class="file-upload" type="file" name="profile_pic" id="profile_pic" accept="image/*">
                             </div>
                             </div>                                          
                         </div>
@@ -946,7 +1045,7 @@ $('.crm-profile-pic').attr('src', url);
                     </div>
                     <div class="form-group col-sm-6">
                         <label for="uname">User Name:</label>
-                        <input placeholder="@a12b3c" type="text" class="form-control" id="username" name="username" value="<?php echo $row['username']; ?>">
+                        <input placeholder="@a12b3c" type="text" class="form-control" id="username" name="username" disabled value="<?php echo $row['username']; ?>">
                     </div>
                     <div class="form-group col-sm-6">
                         <label for="cname">Phone number:</label>
@@ -959,268 +1058,30 @@ $('.crm-profile-pic').attr('src', url);
                         <input placeholder="@a12b3c" type="email" class="form-control" id="email" name="email" value="<?php echo $row['email']; ?>">
                     </div>
  
- 
+                    <div class="form-group col-sm-6">
+                        <label for="cname">occupation:</label>
+                        <input type="text" class="form-control" id="occupation" name="occupation" value="<?php echo $row['occupation']; ?>">
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <label for="dob">Date Of Birth:</label>
+                        <input type="text" placeholder="01-01-2023" class="form-control" id="dob" name="dob" value="<?php echo $row['dob']; ?>">
+                     </div>
+
                     <div class="form-group col-sm-6">
                         <label>Country:</label>
-                        <select class="form-control" id="exampleFormControlSelect3">
-                        <option>select country</option>
-<option value="AF">Afghanistan</option>
-<option value="AX">Aland Islands</option>
-<option value="AL">Albania</option>
-<option value="DZ">Algeria</option>
-<option value="AS">American Samoa</option>
-<option value="AD">Andorra</option>
-<option value="AO">Angola</option>
-<option value="AI">Anguilla</option>
-<option value="AQ">Antarctica</option>
-<option value="AG">Antigua and Barbuda</option>
-<option value="AR">Argentina</option>
-<option value="AM">Armenia</option>
-<option value="AW">Aruba</option>
-<option value="AU">Australia</option>
-<option value="AT">Austria</option>
-<option value="AZ">Azerbaijan</option>
-<option value="BS">Bahamas</option>
-<option value="BH">Bahrain</option>
-<option value="BD">Bangladesh</option>
-<option value="BB">Barbados</option>
-<option value="BY">Belarus</option>
-<option value="BE">Belgium</option>
-<option value="BZ">Belize</option>
-<option value="BJ">Benin</option>
-<option value="BM">Bermuda</option>
-<option value="BT">Bhutan</option>
-<option value="BO">Bolivia</option>
-<option value="BQ">Bonaire, Sint Eustatius and Saba</option>
-<option value="BA">Bosnia and Herzegovina</option>
-<option value="BW">Botswana</option>
-<option value="BV">Bouvet Island</option>
-<option value="BR">Brazil</option>
-<option value="IO">British Indian Ocean Territory</option>
-<option value="BN">Brunei Darussalam</option>
-<option value="BG">Bulgaria</option>
-<option value="BF">Burkina Faso</option>
-<option value="BI">Burundi</option>
-<option value="KH">Cambodia</option>
-<option value="CM">Cameroon</option>
-<option value="CA">Canada</option>
-<option value="CV">Cape Verde</option>
-<option value="KY">Cayman Islands</option>
-<option value="CF">Central African Republic</option>
-<option value="TD">Chad</option>
-<option value="CL">Chile</option>
-<option value="CN">China</option>
-<option value="CX">Christmas Island</option>
-<option value="CC">Cocos (Keeling) Islands</option>
-<option value="CO">Colombia</option>
-<option value="KM">Comoros</option>
-<option value="CG">Congo</option>
-<option value="CD">Congo, Democratic Republic of the Congo</option>
-<option value="CK">Cook Islands</option>
-<option value="CR">Costa Rica</option>
-<option value="CI">Cote D'Ivoire</option>
-<option value="HR">Croatia</option>
-<option value="CU">Cuba</option>
-<option value="CW">Curacao</option>
-<option value="CY">Cyprus</option>
-<option value="CZ">Czech Republic</option>
-<option value="DK">Denmark</option>
-<option value="DJ">Djibouti</option>
-<option value="DM">Dominica</option>
-<option value="DO">Dominican Republic</option>
-<option value="EC">Ecuador</option>
-<option value="EG">Egypt</option>
-<option value="SV">El Salvador</option>
-<option value="GQ">Equatorial Guinea</option>
-<option value="ER">Eritrea</option>
-<option value="EE">Estonia</option>
-<option value="ET">Ethiopia</option>
-<option value="FK">Falkland Islands (Malvinas)</option>
-<option value="FO">Faroe Islands</option>
-<option value="FJ">Fiji</option>
-<option value="FI">Finland</option>
-<option value="FR">France</option>
-<option value="GF">French Guiana</option>
-<option value="PF">French Polynesia</option>
-<option value="TF">French Southern Territories</option>
-<option value="GA">Gabon</option>
-<option value="GM">Gambia</option>
-<option value="GE">Georgia</option>
-<option value="DE">Germany</option>
-<option value="GH">Ghana</option>
-<option value="GI">Gibraltar</option>
-<option value="GR">Greece</option>
-<option value="GL">Greenland</option>
-<option value="GD">Grenada</option>
-<option value="GP">Guadeloupe</option>
-<option value="GU">Guam</option>
-<option value="GT">Guatemala</option>
-<option value="GG">Guernsey</option>
-<option value="GN">Guinea</option>
-<option value="GW">Guinea-Bissau</option>
-<option value="GY">Guyana</option>
-<option value="HT">Haiti</option>
-<option value="HM">Heard Island and Mcdonald Islands</option>
-<option value="VA">Holy See (Vatican City State)</option>
-<option value="HN">Honduras</option>
-<option value="HK">Hong Kong</option>
-<option value="HU">Hungary</option>
-<option value="IS">Iceland</option>
-<option value="IN">India</option>
-<option value="ID">Indonesia</option>
-<option value="IR">Iran, Islamic Republic of</option>
-<option value="IQ">Iraq</option>
-<option value="IE">Ireland</option>
-<option value="IM">Isle of Man</option>
-<option value="IL">Israel</option>
-<option value="IT">Italy</option>
-<option value="JM">Jamaica</option>
-<option value="JP">Japan</option>
-<option value="JE">Jersey</option>
-<option value="JO">Jordan</option>
-<option value="KZ">Kazakhstan</option>
-<option value="KE">Kenya</option>
-<option value="KI">Kiribati</option>
-<option value="KP">Korea, Democratic People's Republic of</option>
-<option value="KR">Korea, Republic of</option>
-<option value="XK">Kosovo</option>
-<option value="KW">Kuwait</option>
-<option value="KG">Kyrgyzstan</option>
-<option value="LA">Lao People's Democratic Republic</option>
-<option value="LV">Latvia</option>
-<option value="LB">Lebanon</option>
-<option value="LS">Lesotho</option>
-<option value="LR">Liberia</option>
-<option value="LY">Libyan Arab Jamahiriya</option>
-<option value="LI">Liechtenstein</option>
-<option value="LT">Lithuania</option>
-<option value="LU">Luxembourg</option>
-<option value="MO">Macao</option>
-<option value="MK">Macedonia, the Former Yugoslav Republic of</option>
-<option value="MG">Madagascar</option>
-<option value="MW">Malawi</option>
-<option value="MY">Malaysia</option>
-<option value="MV">Maldives</option>
-<option value="ML">Mali</option>
-<option value="MT">Malta</option>
-<option value="MH">Marshall Islands</option>
-<option value="MQ">Martinique</option>
-<option value="MR">Mauritania</option>
-<option value="MU">Mauritius</option>
-<option value="YT">Mayotte</option>
-<option value="MX">Mexico</option>
-<option value="FM">Micronesia, Federated States of</option>
-<option value="MD">Moldova, Republic of</option>
-<option value="MC">Monaco</option>
-<option value="MN">Mongolia</option>
-<option value="ME">Montenegro</option>
-<option value="MS">Montserrat</option>
-<option value="MA">Morocco</option>
-<option value="MZ">Mozambique</option>
-<option value="MM">Myanmar</option>
-<option value="NA">Namibia</option>
-<option value="NR">Nauru</option>
-<option value="NP">Nepal</option>
-<option value="NL">Netherlands</option>
-<option value="AN">Netherlands Antilles</option>
-<option value="NC">New Caledonia</option>
-<option value="NZ">New Zealand</option>
-<option value="NI">Nicaragua</option>
-<option value="NE">Niger</option>
-<option value="NG">Nigeria</option>
-<option value="NU">Niue</option>
-<option value="NF">Norfolk Island</option>
-<option value="MP">Northern Mariana Islands</option>
-<option value="NO">Norway</option>
-<option value="OM">Oman</option>
-<option value="PK">Pakistan</option>
-<option value="PW">Palau</option>
-<option value="PS">Palestinian Territory, Occupied</option>
-<option value="PA">Panama</option>
-<option value="PG">Papua New Guinea</option>
-<option value="PY">Paraguay</option>
-<option value="PE">Peru</option>
-<option value="PH">Philippines</option>
-<option value="PN">Pitcairn</option>
-<option value="PL">Poland</option>
-<option value="PT">Portugal</option>
-<option value="PR">Puerto Rico</option>
-<option value="QA">Qatar</option>
-<option value="RE">Reunion</option>
-<option value="RO">Romania</option>
-<option value="RU">Russian Federation</option>
-<option value="RW">Rwanda</option>
-<option value="BL">Saint Barthelemy</option>
-<option value="SH">Saint Helena</option>
-<option value="KN">Saint Kitts and Nevis</option>
-<option value="LC">Saint Lucia</option>
-<option value="MF">Saint Martin</option>
-<option value="PM">Saint Pierre and Miquelon</option>
-<option value="VC">Saint Vincent and the Grenadines</option>
-<option value="WS">Samoa</option>
-<option value="SM">San Marino</option>
-<option value="ST">Sao Tome and Principe</option>
-<option value="SA">Saudi Arabia</option>
-<option value="SN">Senegal</option>
-<option value="RS">Serbia</option>
-<option value="CS">Serbia and Montenegro</option>
-<option value="SC">Seychelles</option>
-<option value="SL">Sierra Leone</option>
-<option value="SG">Singapore</option>
-<option value="SX">Sint Maarten</option>
-<option value="SK">Slovakia</option>
-<option value="SI">Slovenia</option>
-<option value="SB">Solomon Islands</option>
-<option value="SO">Somalia</option>
-<option value="ZA">South Africa</option>
-<option value="GS">South Georgia and the South Sandwich Islands</option>
-<option value="SS">South Sudan</option>
-<option value="ES">Spain</option>
-<option value="LK">Sri Lanka</option>
-<option value="SD">Sudan</option>
-<option value="SR">Suriname</option>
-<option value="SJ">Svalbard and Jan Mayen</option>
-<option value="SZ">Swaziland</option>
-<option value="SE">Sweden</option>
-<option value="CH">Switzerland</option>
-<option value="SY">Syrian Arab Republic</option>
-<option value="TW">Taiwan, Province of China</option>
-<option value="TJ">Tajikistan</option>
-<option value="TZ">Tanzania, United Republic of</option>
-<option value="TH">Thailand</option>
-<option value="TL">Timor-Leste</option>
-<option value="TG">Togo</option>
-<option value="TK">Tokelau</option>
-<option value="TO">Tonga</option>
-<option value="TT">Trinidad and Tobago</option>
-<option value="TN">Tunisia</option>
-<option value="TR">Turkey</option>
-<option value="TM">Turkmenistan</option>
-<option value="TC">Turks and Caicos Islands</option>
-<option value="TV">Tuvalu</option>
-<option value="UG">Uganda</option>
-<option value="UA">Ukraine</option>
-<option value="AE">United Arab Emirates</option>
-<option value="GB">United Kingdom</option>
-<option value="US">United States</option>
-<option value="UM">United States Minor Outlying Islands</option>
-<option value="UY">Uruguay</option>
-<option value="UZ">Uzbekistan</option>
-<option value="VU">Vanuatu</option>
-<option value="VE">Venezuela</option>
-<option value="VN">Viet Nam</option>
-<option value="VG">Virgin Islands, British</option>
-<option value="VI">Virgin Islands, U.s.</option>
-<option value="WF">Wallis and Futuna</option>
-<option value="EH">Western Sahara</option>
-<option value="YE">Yemen</option>
-<option value="ZM">Zambia</option>
-<option value="ZW">Zimbabwe</option>
+                        <?php include('country_list.php'); ?>
+
+                        <select class="form-control" id="country" name="country" value="<?php echo $row['country']; ?>">
+                          
+                          <?php foreach ($country_list as $code => $name): ?>
+      <option value="<?php echo $code; ?>" <?php if ($country_list == $code) echo "sdasdasdasdasselected"; ?>><?php echo $name; ?></option>
+    <?php endforeach; ?> 
                         </select>
                     </div>
-                    
+                        
                     </div>
-                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>  
                     <button type="reset" class="btn iq-bg-danger">Cancel</button>
                 </form>
             </div>
@@ -1233,38 +1094,25 @@ $('.crm-profile-pic').attr('src', url);
                     <h4 class="card-title">Change Password</h4>
                 </div>
             </div>
+  
             <div class="card-body">
-                <form>
+                <form action="change_password.php" method="POST">
                     <div class="form-group">
-                    <label for="cpass">Current Password:</label>
-                    <a href="javascripe:void();" class="float-right">Forgot Password</a>
-                    <input type="Password" class="form-control" id="cpass" value="">
+                        <label for="cpass">Current Password:</label>
+                        <a href="auth-recoverpw.html" class="float-right">Forgot Password</a>
+                        <input type="password" class="form-control" id="cpass" name="cpass" required>
                     </div>
                     <div class="form-group">
-                    <label for="npass">New Password:</label>
-                    <input type="Password" class="form-control" id="npass" value="">
+                        <label for="npass">New Password:</label>
+                        <input type="password" class="form-control" id="npass" name="npass" required>
                     </div>
                     <div class="form-group">
-                    <label for="vpass">Verify Password:</label>
-                    <input type="Password" class="form-control" id="vpass" value="">
+                        <label for="vpass">Verify Password:</label>
+                        <input type="password" class="form-control" id="vpass" name="vpass" required>
                     </div>
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     <button type="reset" class="btn iq-bg-danger">Cancel</button>
                 </form>
-                <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  // Process form data
-  $phone = $_POST['phone'];
-  // Update the database with the new phone number
-  
-  // Display success message or error message
-  if ($success) {
-    echo '<div class="alert alert-success" role="alert">Phone number updated successfully</div>';
-  } else {
-    echo '<div class="alert alert-danger" role="alert">Error updating phone number</div>';
-  }
-}
-?>
             </div>
         </div>
         </div>
@@ -1292,16 +1140,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 </div>
 </footer>
-
-<script src="index.js" ></script>
-<!-- Backend Bundle JavaScript -->
-<script src="../assets/js/backend-bundle.min.js"></script>
+ 
 <script>
     $(document).ready(function() {
       $('#myForm').submit(function(e) {
         e.preventDefault(); // prevent the form from submitting normally
         $.ajax({
-          url: 'add.php',
+          url: 'update.php',
           type: 'post',
           data: $('#myForm').serialize(),
           success: function(response) {
@@ -1316,42 +1161,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     });
     </script>
 <!-- Flextree Javascript-->
-<script src="../assets/js/flex-tree.min.js"></script>
-<script src="../assets/js/tree.js"></script>
-
-<!-- Table Treeview JavaScript -->
-<script src="../assets/js/table-treeview.js"></script>
-
-<!-- Masonary Gallery Javascript -->
-<script src="../assets/js/masonry.pkgd.min.js"></script>
-<script src="../assets/js/imagesloaded.pkgd.min.js"></script>
-
-<!-- Mapbox Javascript -->
-<script src="../assets/js/mapbox-gl.js"></script>
-<script src="../assets/js/mapbox.js"></script>
-
-<!-- Fullcalender Javascript -->
-<script src='../assets/vendor/fullcalendar/core/main.js'></script>
-<script src='../assets/vendor/fullcalendar/daygrid/main.js'></script>
-<script src='../assets/vendor/fullcalendar/timegrid/main.js'></script>
-<script src='../assets/vendor/fullcalendar/list/main.js'></script>
-
-<!-- SweetAlert JavaScript -->
-<script src="../assets/js/sweetalert.js"></script>
-
-<!-- Vectoe Map JavaScript -->
-<script src="../assets/js/vector-map-custom.js"></script>
-
-<!-- Chart Custom JavaScript -->
-<script src="../assets/js/customizer.js"></script>
-
-<!-- Chart Custom JavaScript -->
-<script src="../assets/js/chart-custom.js"></script>
-
-<!-- slider JavaScript -->
-<script src="../assets/js/slider.js"></script>
-
-<!-- app JavaScript -->
-<script src="../assets/js/app.js"></script>
+ 
 </body>
 </html>

@@ -44796,9 +44796,10 @@ table.dataTable,table.dataTable th,table.dataTable td
   z-index: 2;
   background-color: #fefefe;
   margin: auto;
-  padding: 20px;
+  padding: 10px ;
   border: 1px solid #888;
   width: 50%;
+  border-radius: 1rem;
 }
 
 /* The Close Button */
