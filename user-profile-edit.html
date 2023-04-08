@@ -142,7 +142,10 @@
 
 <body class=" ">
 <!-- loader Start -->
- 
+<div id="loading">
+    <div id="loading-center">
+    </div>
+</div>
 <div class="right-sidebar-mini right-sidebar">
 <div class="right-sidebar-panel p-0">
 <div class="right-sidebar-toggle bg-primary mt-3" data-extra-toggle="right-sidebar-dissmiss">
@@ -1023,11 +1026,11 @@
                     <div class="col-md-12">
                         <div class="profile-img-edit">
                             <div class="crm-profile-img-edit">
-                                <img class="crm-profile-pic avatar-100" src="<?php echo $row['profile_pic'];?>" alt="profile-pic">
+                                <img class="crm-profile-pic avatar-100" src=" "alt="profile-pic">
                                 <div class="crm-p-image bg-primary">
                                 <i class="las la-pen upload-button"></i>
                                 
-                                <input class="file-upload" type="file" name="profile_pic" id="profile_pic" accept="image/*">
+                                <input class="file-upload" type="file"  name="file" name="file" accept="image/*">
                             </div>
                             </div>                                          
                         </div>
@@ -1081,7 +1084,7 @@
                     </div>
                     
                     </div>
-                    <button type="submit" class="btn btn-primary mr-2">Submit</button>  
+                    <button type="submit"   name="submit" class="btn btn-primary mr-2">Submit</button>  
                     <button type="reset" class="btn iq-bg-danger">Cancel</button>
                 </form>
             </div>
@@ -1096,7 +1099,7 @@
             </div>
   
             <div class="card-body">
-                <form action="change_password.php" method="POST">
+                <form id="forgotform">
                     <div class="form-group">
                         <label for="cpass">Current Password:</label>
                         <a href="auth-recoverpw.html" class="float-right">Forgot Password</a>
@@ -1150,7 +1153,28 @@
           type: 'post',
           data: $('#myForm').serialize(),
           success: function(response) {
-            alert('Phone number updated successfully');
+            alert('Information updated successfully');
+            // You can also update the page content here without reloading the page
+          },
+          error: function(xhr, status, error) {
+            alert(xhr.responseText);
+          }
+        });
+      });
+    });
+    </script>
+
+
+<script>
+    $(document).ready(function() {
+      $('#forgotform').submit(function(e) {
+        e.preventDefault(); // prevent the form from submitting normally
+        $.ajax({
+          url: 'change_password.php',
+          type: 'post',
+          data: $('#forgotform').serialize(),
+          success: function(response) {
+            alert('Password changed successfully');
             // You can also update the page content here without reloading the page
           },
           error: function(xhr, status, error) {

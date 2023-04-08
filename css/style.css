@@ -39126,6 +39126,12 @@ button.close-popup
   top: -7px;
 }
 
+.note-board{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
 .note-content
 {
   min-height: 370px;
@@ -44822,3 +44828,5 @@ table.dataTable,table.dataTable th,table.dataTable td
   opacity: .7;
   pointer-events: none; /* to prevent mouse events from reaching the content */
 }
+
+  

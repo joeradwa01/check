@@ -8,7 +8,7 @@
       <!-- Favicon -->
       <link rel="shortcut icon" href="icons8-note-48.png" />
       
-       <link rel="stylesheet" href="css/style.css">/ 
+       <link rel="stylesheet" href="css/style.css">
        <link rel="stylesheet" href="http://localhost:8080/web/css/style.css">
        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 
@@ -30,7 +30,10 @@
       <link rel="stylesheet" href="../assets/vendor/mapbox/mapbox-gl.css">  </head>
   <body class="noteplus-layout  ">
     <!-- loader Start -->
- 
+    <div id="loading">
+        <div id="loading-center">
+        </div>
+  </div>
     <div class="page-content">
  
     <div class="right-sidebar-mini right-sidebar">
@@ -569,7 +572,7 @@
               <a href="#" class="iq-user-toggle d-flex align-items-center justify-content-between" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <img src="../assets/images/user/1.jpg" class="img-fluid rounded avatar-50 mr-3" alt="user">
                   <div class="caption">
-                      <h6 class="mb-0 line-height">Bud Wiser</h6>
+                      <h6 class="mb-0 line-height"><?php echo $row['firstName']; ?> <?php echo $row['lastName']; ?></h6>
                   </div>
                   <i class="las la-angle-down"></i>
               </a>
@@ -578,7 +581,7 @@
                       <i class="lar la-user-circle font-size-20 mr-1"></i>
                       <span class="mt-2">My Profile</span>
                   </a>
-                  <a class="dropdown-item mb-2" href="../app/user-profile-edit.html">
+                  <a class="dropdown-item mb-2" href="user-profile-edit.html">
                       <i class="las la-user-edit font-size-20 mr-1"></i>
                       <span>Edit Profile</span>
                   </a>
@@ -989,22 +992,20 @@
 <!--note -->
 
 
+ 
 
+ 
 
         <div class="note-content tab-content">                                
         <div id="note1" class="tab-pane fade active show">
             <div class="icon active animate__animated animate__fadeIn i-grid">
- 
-                <div  id="savenote" class="savenote" >
 
-    </div>
- 
                 
-                <div class="row">
+                 <div  id="savenote" class="savenote" >
+
+    
  
-
-
-    </div>
+                </div>     
     </div>
 </div>
 </div>
@@ -1013,8 +1014,8 @@
 
                       
 </div>
-
-
+        </div>
+        </div>
  <!-- Modal Edit -->
  <div class="modal fade" id="edit-note1" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -1085,7 +1086,7 @@
 </div>
 </div>
 
-<
+
 
 
     
@@ -1155,6 +1156,12 @@
     </div> 
     
      
+
+
+
+
+
+    
  
 <!-- The Modal -->
 <div id="myModal" class="modal-create ">

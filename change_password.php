@@ -23,9 +23,8 @@ if (!preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{8,}$/', $new_passwor
     echo "Error updating password: New password should be at least 8 characters long and contain at least one number and one symbol.";
 } else {
     // If the current password is correct and the new password meets the requirements, update the password in the database
-    $new_password_hash =  $new_password;
-    $stmt = $conn->prepare("UPDATE form SET password = ? WHERE email = ?");
-    $stmt->bind_param("ss", $new_password_hash, $email);
+     $stmt = $conn->prepare("UPDATE form SET password = ? WHERE email = ?");
+    $stmt->bind_param("ss", $new_password, $email);
 
     if ($stmt->execute()) {
         echo "Password updated successfully.";
