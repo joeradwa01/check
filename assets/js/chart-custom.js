@@ -5035,7 +5035,7 @@ function createNote() {
       }
     });
     
-   
+ 
    
 
     var closeButton = note.querySelector('.note-close');
@@ -5102,8 +5102,11 @@ function createNote() {
 
     });
     document.querySelector('#savenote').appendChild(note);
-   
+ 
+
 }
+
+
 function change(noteElem) {
   let noteDetailElem = noteElem.querySelector('.note-detail');
   noteDetailElem.classList.remove('card-bottom-border-primary');

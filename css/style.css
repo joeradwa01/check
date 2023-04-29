@@ -1683,6 +1683,14 @@ pre code
     max-width: 100%;
   }
 
+
+  .col-lg-24{
+
+    width: 500px;
+
+
+  }
+
   .order-lg-first
   {
     order: -1;
