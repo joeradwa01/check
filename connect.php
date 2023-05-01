@@ -1,5 +1,6 @@
 <?php
-	$firstName = $_POST['firstName'];
+ 
+$firstName = $_POST['firstName'];
 	$lastName = $_POST['lastName'];
 	$email = $_POST['email'];
 	$password = $_POST['password'];
@@ -45,4 +46,5 @@ $stmt->close();
 		$conn->close();
 	}
 }
+ 
 ?>

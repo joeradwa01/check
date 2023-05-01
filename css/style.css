@@ -1422,6 +1422,7 @@ pre code
     max-width: 100%;
   }
 
+ 
   .order-md-first
   {
     order: -1;
@@ -1681,6 +1682,14 @@ pre code
   {
     flex: 0 0 100%;
     max-width: 100%;
+  }
+
+
+  .col-lg-24{
+
+    width: 500px;
+
+
   }
 
   .order-lg-first

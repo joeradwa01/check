@@ -1,6 +1,26 @@
+<?php
+session_start();
+   
+
+ $conn = new mysqli('localhost', 'root', '', 'page');
+if ($conn->connect_error) {
+    echo "$conn->connect_error";
+    die("Connection Failed : " . $conn->connect_error);
+} else {
+ 
+    $email = $_SESSION['email'];
+    $sql = "SELECT * FROM form WHERE email = '$email'";
+    $result = $conn->query($sql);
+
+    $row = $result->fetch_assoc();
 
 
-<!doctype html>
+      
+    $conn->close();
+}
+?>  
+
+<!doctype html> 
 
 <html lang="en">
 <head>
@@ -640,22 +660,12 @@
                     <img src="1.jpg" class="img-fluid rounded avatar-50" alt="user">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right w-100 border-0 py-2" aria-labelledby="h-dropdownMenuButton001">
-                    <a class="dropdown-item mb-2" href="../app/user-profile.html">
-                        <i class="lar la-user-circle font-size-20 mr-1"></i>
-                        <span class="mt-2">My Profile</span>
-                    </a>
+                
                     <a class="dropdown-item mb-2" href="../app/user-profile-edit.html">
                         <i class="las la-user-edit font-size-20 mr-1"></i>
                         <span>Edit Profile</span>
                     </a>
-                    <a class="dropdown-item mb-2" href="../app/user-account-setting.html">
-                        <i class="las la-user-cog font-size-20 mr-1"></i>
-                        <span>Account Settings</span>
-                    </a>
-                    <a class="dropdown-item" href="../app/user-privacy-setting.html">
-                        <i class="las la-user-shield font-size-20 mr-1"></i>
-                        <span>Privacy Settings</span>
-                    </a>
+                     
                     <hr class="my-1">
                     <a class="dropdown-item" href="../backend/index.html">
                         <i class="las la-sign-out-alt font-size-20 mr-1"></i>
@@ -684,26 +694,17 @@
 <img src="1.jpg" class="img-fluid rounded avatar-50 mr-3" alt="user">
 <div class="caption">
     <h6 class="mb-0 line-height"><?php echo $row['firstName']; ?> <?php echo $row['lastName']; ?> </h6>
-</div>
+</div> 
 <i class="las la-angle-down"></i>
 </a>
 <div class="dropdown-menu w-100 border-0 my-2" aria-labelledby="dropdownMenuButton">
-<a class="dropdown-item mb-2" href="../app/user-profile.html">
-    <i class="lar la-user-circle font-size-20 mr-1"></i>
-    <span class="mt-2">My Profile</span>
-</a>
+ 
 <a class="dropdown-item mb-2" href="../app/user-profile-edit.html">
     <i class="las la-user-edit font-size-20 mr-1"></i>
     <span>Edit Profile</span>
 </a>
-<a class="dropdown-item mb-2" href="../app/user-account-setting.html">
-    <i class="las la-user-cog font-size-20 mr-1"></i>
-    <span>Account Settings</span>
-</a>
-<a class="dropdown-item mb-3" href="../app/user-privacy-setting.html">
-    <i class="las la-user-shield font-size-20 mr-1"></i>
-    <span>Privacy Settings</span>
-</a>
+ 
+ 
 <hr class="my-2">
 <a class="dropdown-item" href="auth-sign-in.html">
     <i class="las la-sign-out-alt font-size-20 mr-1"></i>
@@ -722,24 +723,16 @@
 <a href="#"  id="dropdownMenuButton01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-primary pr-5 position-relative iq-user-toggle d-flex align-items-center justify-content-between" style="height: 40px;"><span class="btn-title btn-create"><i class="ri-add-line mr-3"></i>Create New</span><span class="note-add-btn" style="height: 40px;"><i class="las la-angle-down"></i></span></a>
 <div class="dropdown-menu w-100 border-0 py-3" aria-labelledby="dropdownMenuButton01">
     <a class="dropdown-item mb-2" href="../backend/page-new-note.html?type=blank">
-        <span><i class="ri-sticky-note-line mr-3"></i>Blank Notes</span>
+        <span><i class="ri-sticky-note-line mr-3"></i>Board</span>
     </a>
-    <a class="dropdown-item mb-2" href="../backend/page-new-note.html?type=todo">
-        <span><i class="ri-todo-line mr-3"></i>To-do</span>
-    </a>
-    <a class="dropdown-item mb-2" href="../backend/page-new-note.html?type=essay">
-        <span><i class="ri-booklet-line mr-3"></i>Essay Notes</span>
-    </a>
-    <a class="dropdown-item" href="../backend/page-new-note.html?type=daily">
-        <span><i class="ri-donut-chart-line mr-3"></i>Daily Reflection</span>
-    </a>
+    
 </div>
 </div>
 
 <nav class="iq-sidebar-menu">
 <ul id="iq-sidebar-toggle" class="iq-menu">
     <li class="active">
-            <a href="index.html" class="svg-icon">
+            <a href="index.php" class="svg-icon">
                 <i>
                     <svg class="svg-icon" id="iq-main-1" width="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
@@ -750,52 +743,33 @@
         <ul id="index" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
         </ul>
     </li>
+   <li class="">
+                          <a href="#notebooks" class="collapsed svg-icon" data-toggle="collapse" aria-expanded="false">
+                              <i>
+                                  <svg width="20" class="svg-icon" id="iq-main-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z" />
+                                  </svg>
+                              </i>
+                              <span>Notebooks</span>
+                              <i class="las la-angle-right iq-arrow-right arrow-active"></i>
+                              <i class="las la-angle-down iq-arrow-right arrow-hover"></i>
+                          </a>
+                          <ul id="notebooks" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                              <li class="">
+                                  <a href="project-board.html" class="svg-icon">
+                                      <i>
+                                          <svg width="20" class="svg-icon" id="iq-main-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+                                          </svg>
+                                      </i>
+                                      <span>Your Boards</span>
+                                  </a>
+                              </li>
+                         
+                          </ul>
+                      </li>
     <li class="">
-        <a href="#notebooks" class="collapsed svg-icon" data-toggle="collapse" aria-expanded="false">
-            <i>
-                <svg width="20" class="svg-icon" id="iq-main-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z" />
-                </svg>
-            </i>
-            <span>Notebooks</span>
-            <i class="las la-angle-right iq-arrow-right arrow-active"></i>
-            <i class="las la-angle-down iq-arrow-right arrow-hover"></i>
-        </a>
-        <ul id="notebooks" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-            <li class="">
-                <a href="../backend/page-project-plans.html" class="svg-icon">
-                    <i>
-                        <svg width="20" class="svg-icon" id="iq-main-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                        </svg>
-                    </i>
-                    <span>Project Plans</span>
-                </a>
-            </li>
-            <li class="">
-                <a href="../backend/page-routinenotes.html" class="svg-icon">
-                    <i>
-                        <svg width="20" class="svg-icon" id="iq-main-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                        </svg>
-                    </i>
-                    <span>Routine Notes</span>
-                </a>
-            </li>
-            <li class="">
-                <a href="../backend/page-planning.html" class="svg-icon">
-                    <i>
-                        <svg width="20" class="svg-icon" id="iq-main-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                        </svg>
-                    </i>
-                    <span>Planning</span>
-                </a>
-            </li>
-        </ul>
-    </li>
-    <li class="">
-        <a href="../backend/page-reminder.html" class="svg-icon">
+        <a href="page-reminder.html" class="svg-icon">
             <i>
                 <svg width="20" class="svg-icon" id="iq-main-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -812,10 +786,11 @@
                 </svg>                            
             </i>
             <span>Tags</span>
+        
         </a>
     </li>
     <li class="">
-        <a href="../backend/page-bin.html" class="svg-icon">
+        <a href="page-bin.html" class="svg-icon">
             <i>
                 <svg width="20" class="svg-icon" id="iq-main-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -1019,7 +994,7 @@
             <div class="card-body">
 
 
-                <form id="myForm" enctype="multipart/form-data">
+                <form id="myForm" >
 
                     
                     <div class="form-group row align-items-center">
@@ -1030,7 +1005,7 @@
                                 <div class="crm-p-image bg-primary">
                                 <i class="las la-pen upload-button"></i>
                                 
-                                <input class="file-upload" type="file"  name="file" name="file" accept="image/*">
+                                <input class="file-upload" type="file"  name="id" name="file" accept="image/*">
                             </div>
                             </div>                                          
                         </div>
@@ -1188,3 +1163,4 @@
  
 </body>
 </html>
+ 
