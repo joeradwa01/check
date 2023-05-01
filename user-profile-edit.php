@@ -20,12 +20,8 @@ if ($conn->connect_error) {
     $conn->close();
 }
 ?>  
-
-=======
  
-
->>>>>>> 63e5bfa6e58c0d65e8486b886cdd5fbb7c8741fa:user-profile-edit.html
-<!doctype html> 
+ <!doctype html> 
 
 <html lang="en">
 <head>
