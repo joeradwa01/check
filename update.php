@@ -5,7 +5,12 @@
 session_start();
 $email = $_SESSION['email'];
 
+<<<<<<< HEAD
  
+=======
+// Get the phone number and profile picture from the form submission
+
+>>>>>>> 63e5bfa6e58c0d65e8486b886cdd5fbb7c8741fa
 $firstName = $_POST['firstName'];
 $lastName = $_POST['lastName'];
 $phone = $_POST['phone'];

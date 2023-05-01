@@ -1,3 +1,4 @@
+<<<<<<< HEAD:user-profile-edit.php
 <?php
 session_start();
    
@@ -20,6 +21,10 @@ if ($conn->connect_error) {
 }
 ?>  
 
+=======
+ 
+
+>>>>>>> 63e5bfa6e58c0d65e8486b886cdd5fbb7c8741fa:user-profile-edit.html
 <!doctype html> 
 
 <html lang="en">
@@ -1011,6 +1016,9 @@ if ($conn->connect_error) {
                         </div>
                     </div>
                     </div>
+                    
+
+                    
 
                     <div class=" row align-items-center">
                     <div class="form-group col-sm-6">

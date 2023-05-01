@@ -1,10 +1,10 @@
 <?php
  
 include('connection.php');  
-  
+     
 $email = $_POST['email'];  
 $password = $_POST['password'];  
-       
+        
 //to prevent from mysqli injection  
 $email = stripcslashes($email);  
 $password = stripcslashes($password);  

@@ -5118,10 +5118,18 @@ let currentDate = `${day}-${month}-${year}`;
 
     quill.setText('');
      
+<<<<<<< HEAD
         $.ajax({
          type: "POST",
          url: "save_note.php",
          data: { content: content },
+=======
+     let cont=content.GetHtml();
+       $.ajax({
+         type: "POST",
+         url: "save_note.php",
+         data: { content: cont },
+>>>>>>> 63e5bfa6e58c0d65e8486b886cdd5fbb7c8741fa
          success: function(data) {
              console.log(data);
          }
